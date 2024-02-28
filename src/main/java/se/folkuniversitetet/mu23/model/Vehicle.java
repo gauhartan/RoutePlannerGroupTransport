@@ -18,4 +18,7 @@ public class Vehicle {
     private Long id;
     private String name;
     private String type;
+    private Boolean inUse;
+    private Integer inUseMinutes;
+    private String location;
 }

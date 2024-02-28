@@ -16,4 +16,8 @@ public class VehicleService {
     public Optional<Vehicle> fetchById(Long id) {
         return vehicleRepository.findById(id);
     }
+
+    public Vehicle update(Vehicle vehicle) {
+        return vehicleRepository.save(vehicle);
+    }
 }

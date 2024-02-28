@@ -17,8 +17,8 @@ public class Group {
     private Long id;
     private String name;
     private String type;
-    @OneToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<User> users;
-    @OneToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Vehicle> vehicles;
 }
