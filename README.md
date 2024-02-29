@@ -1,4 +1,94 @@
-### Mal och Curl
+### Mal och Curl (azure)
+
+1.
+
+Mal: Skapa grupper av användare<br>
+Curl:<br>
+<code>
+curl --location --request
+POST 'https://route-planner-grupptransport.azurewebsites.net/api/v1/group?name=walking_and_cycling&type=walking'
+</code>
+
+2.
+
+Mal: Registrera nya användare i en grupp<br>
+Curl:<br>
+<code>
+curl --location --request
+POST 'https://route-planner-grupptransport.azurewebsites.net/api/v1/group/add/user?groupId=3&userId=1'
+</code>
+
+3.
+
+Mal: Lägga till fordon till gruppen<br>
+Curl:<br>
+<code>
+curl --location --request
+POST 'https://route-planner-grupptransport.azurewebsites.net/api/v1/group/add/vehicle?groupId=2&vehicleId=2'
+</code>
+
+4.
+
+Mal: Ta bort fordon från gruppen<br>
+Curl:<br>
+<code>
+curl --location --request
+DELETE 'https://route-planner-grupptransport.azurewebsites.net/api/v1/group/delete/vehicle?groupId=2&vehicleId=2'
+</code>
+
+5.
+
+Mal: Hämta en lista över fordon som finns i gruppen<br>
+Här ska det även framgå vart fordonet är placerat och ifall den är tillgänglig eller redan används av en annan
+gruppmedlem.
+<br>
+Curl:<br>
+<code>
+curl --location 'https://route-planner-grupptransport.azurewebsites.net/api/v1/vehicle/group/2'
+</code>
+
+6.
+
+Mal: Sätta ett visst fordon i gruppen som är upptagen. Det ska även gå att sätta hur länge fordonet förväntas vara
+upptagen
+<br>Tiden ska utgå från en rutt hämtad från api:et som hanterar enskild transport.
+<br>
+Curl:<br>
+<code>
+curl
+--location 'https://route-planner-grupptransport.azurewebsites.net/api/v1/group/route/find?groupId=1&from=GARDEN_MALL&to=LIBRARY&transportMethod=walking_and_cycling'
+</code>
+
+7.
+
+Mal: Registrera grupp-promenader<br>
+Curl:<br>
+<code>
+curl --location --request
+POST 'https://route-planner-grupptransport.azurewebsites.net/api/v1/group?name=walking_group_1&type=walking_and_cycling'
+</code>
+
+8.
+
+Mal: Avregistrera promenader<br>
+Curl:<br>
+<code>
+curl --location --request
+DELETE 'https://route-planner-grupptransport.azurewebsites.net/api/v1/group/delete/user?groupId=5&userId=4'
+</code>
+
+9.
+
+Mal: Hämta grupp-promenader<br>
+Promenadens rutt hämtas från tjänsten som hanterar enskild transport (se kategori 1).
+<br>
+Curl:<br>
+<code>
+curl
+--location 'https://route-planner-grupptransport.azurewebsites.net/api/v1/group/route/find?groupId=3&from=LIBRARY&to=CLUB&transportMethod=walking_and_cycling'
+</code>
+
+### Mal och Curl (localhost)
 
 1.
 
